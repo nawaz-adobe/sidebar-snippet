@@ -1,5 +1,2 @@
 mountpoints:
-  /:
-    url: "https://author-p130360-e1272151.adobeaemcloud.com/bin/franklin.delivery/adobe-rnd/aem-boilerplate-xwalk/main"
-    type: "markup"
-    suffix: ".html"
+  /: https://adobe-my.sharepoint.com/:f:/r/personal/nawaz_adobe_com/Documents/sidebar-snippet?csf=1&web=1&e=J92ULz
