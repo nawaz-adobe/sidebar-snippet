@@ -242,9 +242,57 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+main div.sidebar:not(.mobile-view) {
+  display: none;
+}
+
+main .section:has(.sidebar) .sidebar > .section { 
+  padding: 0;
+}
+
+@media (width >= 768px) {
+  main div.sidebar.tablet-full-width {
+    display: block;
+  }
+
+  main .section:has(.sidebar.tablet-view) {
+    position: relative;
+  }
+
+  main .section:has(.sidebar.tablet-view) > div:not(.sidebar) {
+    width: 66%;
+  }
+
+  main div.sidebar.tablet-view {
+    display: block;
+    position: absolute;
+    margin-left: 1rem;
+    width: 32%;
+    right: 0.9375rem;
+    top: 2.3rem;
+  }
+}
+
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
+  }
+
+  main .section:has(.sidebar) {
+    position: relative;
+  }
+
+  main .section:has(.sidebar) > div:not(.sidebar) {
+    width: 66%;
+  }
+
+  main .section:has(.sidebar) .sidebar {
+    display: block;
+    position: absolute;
+    margin-left: 1rem;
+    width: 32%;
+    right: 0.9375rem;
+    top: 2.3rem;
   }
 }
 
