@@ -142,10 +142,6 @@ pre {
   white-space: pre;
 }
 
-main > div {
-  margin: 40px 16px;
-}
-
 input,
 textarea,
 select,
@@ -232,9 +228,7 @@ main > .section {
   margin: 40px 0;
 }
 
-main > .section > div {
-  max-width: 1200px;
-  margin: auto;
+main > .section {
   padding: 0 24px;
 }
 
@@ -251,6 +245,11 @@ main .section:has(.sidebar) .sidebar > .section {
 }
 
 @media (width >= 768px) {
+  main > .section {
+    max-width: 768px;
+    margin: auto;
+  }
+
   main div.sidebar.tablet-full-width {
     display: block;
   }
@@ -268,13 +267,18 @@ main .section:has(.sidebar) .sidebar > .section {
     position: absolute;
     margin-left: 1rem;
     width: 32%;
-    right: 0.9375rem;
-    top: 2.3rem;
+    right: 0;
+    top: 0;
   }
 }
 
 @media (width >= 900px) {
-  main > .section > div {
+  main > .section {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  main > .section {
     padding: 0 32px;
   }
 
@@ -291,10 +295,18 @@ main .section:has(.sidebar) .sidebar > .section {
     position: absolute;
     margin-left: 1rem;
     width: 32%;
-    right: 0.9375rem;
-    top: 2.3rem;
+    right: 0;
+    top: 0;
   }
 }
+
+@media (width >= 1200px) {
+  main > .section {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
 
 /* section metadata */
 main .section.light,
