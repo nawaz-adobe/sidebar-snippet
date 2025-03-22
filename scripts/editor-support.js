@@ -41,6 +41,16 @@ async function applyChanges(event) {
       return true;
     }
 
+    if (
+      element.matches('.section')
+      && (detail?.patch?.name === 'add-sidebar'
+        || detail?.patch?.name === 'sidebar-link'
+        || detail?.patch?.name === 'sidebar-mobile-view'
+        || detail?.patch?.name === 'sidebar-tablet-view')
+    ) {
+      return false;
+    }
+
     const block = element.parentElement?.closest('.block[data-aue-resource]') || element?.closest('.block[data-aue-resource]');
     if (block) {
       const blockResource = block.getAttribute('data-aue-resource');

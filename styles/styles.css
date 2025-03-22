@@ -142,10 +142,6 @@ pre {
   white-space: pre;
 }
 
-main > div {
-  margin: 40px 16px;
-}
-
 input,
 textarea,
 select,
@@ -232,9 +228,7 @@ main > .section {
   margin: 40px 0;
 }
 
-main > .section > div {
-  max-width: 1200px;
-  margin: auto;
+main > .section {
   padding: 0 24px;
 }
 
@@ -242,16 +236,82 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
+main div.sidebar:not(.mobile-view) {
+  display: none;
+}
+
+main .section:has(.sidebar) .sidebar > .section { 
+  padding: 0;
+}
+
+@media (width >= 768px) {
+  main > .section {
+    max-width: 768px;
+    margin: auto;
+  }
+
+  main div.sidebar.tablet-full-width {
+    display: block;
+  }
+
+  main .section:has(.sidebar.tablet-view) {
+    position: relative;
+  }
+
+  main .section:has(.sidebar.tablet-view) > div:not(.sidebar) {
+    width: 66%;
+  }
+
+  main div.sidebar.tablet-view {
+    display: block;
+    position: absolute;
+    margin-left: 1rem;
+    width: 32%;
+    right: 0;
+    top: 0;
   }
 }
+
+@media (width >= 900px) {
+  main > .section {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  main > .section {
+    padding: 0 32px;
+  }
+
+  main .section:has(.sidebar) {
+    position: relative;
+  }
+
+  main .section:has(.sidebar) > div:not(.sidebar) {
+    width: 66%;
+  }
+
+  main .section:has(.sidebar) .sidebar {
+    display: block;
+    position: absolute;
+    margin-left: 1rem;
+    width: 32%;
+    right: 0;
+    top: 0;
+  }
+}
+
+@media (width >= 1200px) {
+  main > .section {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
 
 /* section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+  margin: 0 0 0 0;
+  padding: 40px 0 40px 0;
 }
